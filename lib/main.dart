@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nutrition/secondSnack.dart';
+import 'package:nutrition/thirdSnack.dart';
+import 'breakfast.dart';
+import 'dinner.dart';
+import 'firstSnack.dart';
+import 'lunch.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -13,18 +20,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Правильное питание'),
+      home: const MyHomePage(title: 'План питания'),
     );
   }
 }
@@ -39,8 +38,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final mealtime = <String>['Завтрак', 'Обед', 'Перекус', 'Ужин', 'Перекус'];
-  final time = <String>['8.00', '14.00', '16.00', '19.00', '21.00'];
+  final mealtime = <String>['Завтрак', 'Ранний перекус', 'Обед', 'Полдник', 'Ужин', 'Поздний перекус'];
+  final time = <String>['8.00', '11.00', '14.00', '16.00', '19.00', '22.00'];
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +53,33 @@ class _MyHomePageState extends State<MyHomePage> {
         itemBuilder: (BuildContext context, index) {
           return Card(
             child: ListTile(
-              onTap: () => print(mealtime[index]),
+              onTap: () {
+                if(index == 0) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const BreakfastRoute()));
+                }
+                if(index == 1) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const FirstSnackRoute()));
+                }
+                if(index == 2) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const LunchRoute()));
+                }
+                if(index == 3) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const SecondSnackRoute()));
+                }
+                if(index == 4) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const DinnerRoute()));
+                }
+                if(index == 5) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ThirdSnackRoute()));
+                }
+
+                },
               leading: Icon(Icons.eco),
               trailing: Icon(Icons.keyboard_arrow_right),
               title:  Text('$index- ${mealtime[index]}'),
@@ -64,8 +89,6 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         }
       ),
-
-
 
     );
   }
