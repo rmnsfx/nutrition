@@ -52,11 +52,15 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView.builder(
         itemCount: mealtime.length,
         itemBuilder: (BuildContext context, index) {
-          return ListTile(
-            onTap: () => print(mealtime[index]),
-            leading: Icon(Icons.eco),
-            title:  Text('$index- ${mealtime[index]}'),
-            subtitle: Text('${time[index]}'),
+          return Card(
+            child: ListTile(
+              onTap: () => print(mealtime[index]),
+              leading: Icon(Icons.eco),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              title:  Text('$index- ${mealtime[index]}'),
+              subtitle: Text('${time[index]}'),
+            )
+
           );
         }
       ),
