@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'elements.dart';
+
 class BreakfastRoute extends StatelessWidget {
   const BreakfastRoute({super.key});
 
@@ -9,14 +11,24 @@ class BreakfastRoute extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Завтрак'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
-      ),
+      body: ListView.builder(
+        itemCount: foodElements.length,
+        itemBuilder: (BuildContext context, index) {
+          return Card(
+              child: ListTile(
+                leading: Icon(Icons.eco),
+                trailing: Icon(Icons.add),
+                title:  Text('${foodElements[index]}'),
+                //subtitle: Text('${time[index]}'),
+              ),
+              // child: Column(
+              //   children: [
+              //       Text("Место работы", style: TextStyle(fontSize: 18))
+              //   ]
+              // )
+          );
+        }
+      )
     );
   }
 }

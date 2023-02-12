@@ -5,7 +5,7 @@ import 'breakfast.dart';
 import 'dinner.dart';
 import 'firstSnack.dart';
 import 'lunch.dart';
-
+import 'elements.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Nutrition plan',
       theme: ThemeData(
 
         primarySwatch: Colors.blue,
@@ -38,8 +38,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final mealtime = <String>['Завтрак', 'Ранний перекус', 'Обед', 'Полдник', 'Ужин', 'Поздний перекус'];
-  final time = <String>['8.00', '11.00', '14.00', '16.00', '19.00', '22.00'];
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               leading: Icon(Icons.eco),
               trailing: Icon(Icons.keyboard_arrow_right),
-              title:  Text('$index- ${mealtime[index]}'),
+              title:  Text('${mealtime[index]}'),
               subtitle: Text('${time[index]}'),
             )
 
