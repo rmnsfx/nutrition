@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:nutrition/secondSnack.dart';
 import 'package:nutrition/thirdSnack.dart';
+import 'package:sqflite/sqflite.dart';
 import 'breakfast.dart';
 import 'dinner.dart';
 import 'firstSnack.dart';
 import 'lunch.dart';
 import 'elements.dart';
+import 'sqlite_service.dart';
+import 'models.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +41,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  late SqliteService handler;
+
+  Future<int> addItem() async {
+    Note items = Note(id: 1, description: 'test1');
+
+    return await handler.insertItem(items);
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    handler = SqliteService();
+    handler.initializeDB().whenComplete(() async {
+      await addItem();
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
