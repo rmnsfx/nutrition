@@ -10,10 +10,9 @@ import 'dart:async';
 import 'models.dart';
 
 class ItemsRoute extends StatelessWidget {
-   ItemsRoute({super.key});
+  ItemsRoute({super.key});
 
   final SqliteService dbManager = new SqliteService();
-
 
 
   @override
@@ -22,21 +21,20 @@ class ItemsRoute extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Завтрак'),
         ),
-        body: ListView.builder(
-            itemCount: 3,
-            itemBuilder: (BuildContext context, index) {
-              return Card(
-                child: ListTile(
-                  //leading: Icon(Icons.eco),
-                  //trailing: Icon(Icons.add),
-                  title:  Text("dbManager.getItems()"),
-                  //subtitle: Text('${}'),
-                  //title:  Text('Тест')
-                ),
-
+        body: FutureBuilder(
+            future: dbManager.getItems(),
+            builder: (context, snapshot) {
+              var modelList = snapshot.data as List<Note>?;
+              return ListView.builder(
+                  itemBuilder: (BuildContext context, index) {
+                    return Card(
+                        child: ListTile(title: Text("dbManager.getItems()"),),
+                    );
+                  }
               );
             }
         )
     );
   }
+
 }
