@@ -6,11 +6,12 @@ import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
-
 import 'models.dart';
 
 class ItemsRoute extends StatelessWidget {
-  ItemsRoute({super.key});
+
+  final String text;
+  ItemsRoute({super.key, required this.text});
 
   final SqliteService dbManager = SqliteService();
 
@@ -19,13 +20,13 @@ class ItemsRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Завтрак'),
+          title: Text(text),
         ),
         body: FutureBuilder(
             future: dbManager.getItems(),
             builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),);
             } else {
               List<Note>? notesData = snapshot.data;

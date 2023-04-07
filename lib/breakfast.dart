@@ -25,7 +25,7 @@ class BreakfastRoute extends StatelessWidget {
               child: ListTile(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ItemsRoute()));
+                      builder: (context) => ItemsRoute(text: foodElements[index])));
                 },
                 leading: Icon(Icons.eco),
                 //trailing: Icon(Icons.add),

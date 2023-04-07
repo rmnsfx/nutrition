@@ -44,9 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   late SqliteService handler;
 
-  Future<int> addItem() async {
+  Future<void> addItem() async {
     Note items = Note(id: 1, description: 'test1');
-    return await handler.insertItem(items);
+    //return await handler.insertItem(items);
+    return await handler.deleteItem("1");
   }
 
 
