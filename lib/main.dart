@@ -46,7 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<int> addItem() async {
     Note items = Note(id: 1, description: 'test1');
-
     return await handler.insertItem(items);
   }
 

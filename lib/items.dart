@@ -12,7 +12,7 @@ import 'models.dart';
 class ItemsRoute extends StatelessWidget {
   ItemsRoute({super.key});
 
-  final SqliteService dbManager = new SqliteService();
+  final SqliteService dbManager = SqliteService();
 
 
   @override
@@ -24,14 +24,21 @@ class ItemsRoute extends StatelessWidget {
         body: FutureBuilder(
             future: dbManager.getItems(),
             builder: (context, snapshot) {
-              var modelList = snapshot.data as List<Note>?;
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(),);
+            } else {
+              List<Note>? notesData = snapshot.data;
               return ListView.builder(
+                  itemCount: notesData?.length,
                   itemBuilder: (BuildContext context, index) {
                     return Card(
-                        child: ListTile(title: Text("dbManager.getItems()"),),
+                      child: ListTile(
+                        title: Text(notesData![index].description),),
                     );
                   }
               );
+            }
             }
         )
     );
