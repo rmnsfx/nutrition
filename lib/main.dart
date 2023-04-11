@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 }
 
                 },
-              leading: Icon(Icons.eco),
+              leading: Icon(icons[index]),
               trailing: Icon(Icons.keyboard_arrow_right),
               title:  Text('${mealtime[index]}'),
               subtitle: Text('${time[index]}'),
