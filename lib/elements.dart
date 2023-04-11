@@ -11,3 +11,26 @@ final protein = <String>['Яйцо куриное', 'Куриное филе', '
 final lipid = <String>['Авокадо', 'Орех грецкий', 'Масло льняное', 'Масло оливковое', 'Семена льна'];
 final carbs = <String>['Рис', 'Гречка', 'Овсянка', 'Нут', 'Хлебцы', 'Фрукты', 'Чёрный шоколад'];
 final fibre = <String>['Помидор', 'Морковь', 'Свекла', 'Картофель', 'Капуста', 'Лук', 'Шпинат'];
+final breakfast = <String>['Помидор', 'Морковь', 'Свекла', 'Картофель', 'Капуста', 'Лук', 'Шпинат'];
+
+class Menu {
+  //late int id;
+  String name = "";
+  int weightMin = 0;
+  int weightMax = 0;
+  int quantity = 0;
+
+  Menu(this.name, this.weightMin, this.weightMax, this.quantity);
+}
+
+List<Menu> menuBreakFast = [
+  Menu("Овсянка", 30, 50, 1),
+  Menu("Филе", 30, 50, 1),
+  Menu("Овощи", 30, 50, 1),
+  Menu("Масло", 30, 50, 1),
+];
+
+
+
+
+

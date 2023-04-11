@@ -7,8 +7,8 @@ import 'dinner.dart';
 import 'firstSnack.dart';
 import 'lunch.dart';
 import 'elements.dart';
-import 'sqlite_service.dart';
-import 'models.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -53,38 +53,15 @@ class _MyHomePageState extends State<MyHomePage> {
         itemCount: mealtime.length,
         itemBuilder: (BuildContext context, index) {
           return Card(
-            child: ListTile(
-              onTap: () {
-                if(index == 0) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const BreakfastRoute()));
-                }
-                if(index == 1) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const FirstSnackRoute()));
-                }
-                if(index == 2) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const LunchRoute()));
-                }
-                if(index == 3) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const SecondSnackRoute()));
-                }
-                if(index == 4) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const DinnerRoute()));
-                }
-                if(index == 5) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ThirdSnackRoute()));
-                }
-
-                },
+            child: ExpansionTile(
               leading: Icon(icons[index]),
-              trailing: Icon(Icons.keyboard_arrow_right),
+              //trailing: Icon(Icons.keyboard_arrow_right),
               title:  Text('${mealtime[index]}'),
               subtitle: Text('${time[index]}'),
+              children: <Widget>[
+                  for (var item in menuBreakFast)
+                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString()),),
+              ],
             )
 
           );
