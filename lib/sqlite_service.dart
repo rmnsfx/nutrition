@@ -8,35 +8,26 @@ class SqliteService {
 
   Database? _database;
 
-  // Future<Database> initializeDB() async {
-  //   String path = await getDatabasesPath();
-  //
-  //   return openDatabase(
-  //     join(path, 'database.db'),
-  //     onCreate: (database, version) async {
-  //       await database.execute(
-  //         "CREATE TABLE Notes(id INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT NOT NULL)",
-  //       );
-  //     },
-  //     version: 1,
-  //   );
-  // }
-
   Future initializeDB() async {
-    _database = await openDatabase(join(await getDatabasesPath(), "database.db"),
+
+    if (_database != null) { return; }
+
+    _database = await openDatabase( join(await getDatabasesPath(), "nutrition.db"),
         version: 1, onCreate: (Database db, int version) async {
-          await db.execute(
-            "CREATE TABLE person (id INTEGER PRIMARY KEY autoincrement, name TEXT)",
+          await db.execute("""CREATE TABLE food (id INTEGER PRIMARY KEY autoincrement, 
+          category TEXT, 
+          description TEXT, 
+          createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)""",
           );
         });
+
     return _database;
   }
 
   Future<int> insertItem(Note note) async {
     int result = 0;
     final Database db = await initializeDB();
-    result = await db.insert(
-        'Notes', note.toMap(),
+    result = await db.insert('food', note.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
 
     return result;

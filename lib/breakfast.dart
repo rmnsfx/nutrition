@@ -22,15 +22,27 @@ class BreakfastRoute extends StatelessWidget {
         itemCount: foodElements.length,
         itemBuilder: (BuildContext context, index) {
           return Card(
-              child: ListTile(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ItemsRoute(text: foodElements[index])));
-                },
-                leading: Icon(Icons.eco),
-                //trailing: Icon(Icons.add),
+              elevation: 2,
+              child: ExpansionTile(
                 title:  Text('${foodElements[index]}'),
+                //leading: Icon(Icons.eco),
+                //trailing: Icon(Icons.add),
                 //subtitle: Text('${}'),
+                children: <Widget>[
+                  if( index == 0 )
+                    for (var name in protein)
+                      ListTile(title: Text(name)),
+                  if( index == 1 )
+                    for (var name in lipid)
+                      ListTile(title: Text(name)),
+                  if( index == 2 )
+                    for (var name in carbs)
+                      ListTile(title: Text(name)),
+                  if( index == 3 )
+                    for (var name in fibre)
+                      ListTile(title: Text(name)),
+                ],
+
               ),
 
           );

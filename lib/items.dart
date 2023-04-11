@@ -10,8 +10,9 @@ import 'models.dart';
 
 class ItemsRoute extends StatelessWidget {
 
+  final String headtext;
   final String text;
-  ItemsRoute({super.key, required this.text});
+  ItemsRoute({super.key, required this.headtext, required this.text});
 
   final SqliteService dbManager = SqliteService();
 
@@ -20,7 +21,7 @@ class ItemsRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(text),
+          title: Text(text + ' на ' + headtext),
         ),
         body: FutureBuilder(
             future: dbManager.getItems(),

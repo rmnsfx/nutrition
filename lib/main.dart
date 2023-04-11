@@ -42,25 +42,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  late SqliteService handler;
-
-  Future<void> addItem() async {
-    Note items = Note(id: 1, description: 'test1');
-    //return await handler.insertItem(items);
-    return await handler.deleteItem("1");
-  }
-
-
-  @override
-  void initState() {
-    super.initState();
-    handler = SqliteService();
-    handler.initializeDB().whenComplete(() async {
-      await addItem();
-      setState(() {});
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
 
