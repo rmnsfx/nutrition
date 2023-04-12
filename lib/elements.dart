@@ -19,18 +19,44 @@ class Menu {
   int weightMin = 0;
   int weightMax = 0;
   int quantity = 0;
+  String units = "";
 
-  Menu(this.name, this.weightMin, this.weightMax, this.quantity);
+  Menu(this.name, this.weightMin, this.weightMax, this.quantity, this.units);
 }
 
 List<Menu> menuBreakFast = [
-  Menu("Овсянка", 30, 50, 1),
-  Menu("Филе", 30, 50, 1),
-  Menu("Овощи", 30, 50, 1),
-  Menu("Масло", 30, 50, 1),
+  Menu("Овсянка", 50, 70, 1, " гр."),
+  Menu("Филе куриное", 100, 150, 1, " гр."),
+  Menu("Овощи", 100, 150, 1, " гр."),
+  Menu("Масло оливковое", 10, 15, 1, " гр."),
 ];
 
+List<Menu> menuEarlySnack= [
+  Menu("Яйцо", 2, 3, 1, " шт."),
+  Menu("Овощи", 200, 250, 1, " гр."),
+];
 
+List<Menu> menuLunch = [
+  Menu("Крупа", 70, 80, 1, " гр."),
+  Menu("Филе куриное", 100, 150, 1, " гр."),
+  Menu("Овощи", 200, 250, 1, " гр."),
+];
 
+List<Menu> menuSnack = [
+  Menu("Овощи", 200, 250, 1, " гр."),
+  Menu("Филе куриное", 100, 150, 1, " гр."),
+];
 
+List<Menu> menuDinner = [
+  Menu("Крупа", 70, 80, 1, " гр."),
+  Menu("Филе куриное", 100, 150, 1, " гр."),
+  Menu("Овощи", 200, 250, 1, " гр."),
+  Menu("Масло оливковое", 10, 15, 1, " гр."),
+];
+
+List<Menu> menuLateSnack = [
+  Menu("Филе куриное", 70, 80, 1, " гр."),
+  Menu("Овощи", 200, 250, 1, " гр."),
+  Menu("Масло оливковое", 10, 15, 1, " гр."),
+];
 

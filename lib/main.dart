@@ -1,11 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nutrition/secondSnack.dart';
-import 'package:nutrition/thirdSnack.dart';
-import 'package:sqflite/sqflite.dart';
-import 'breakfast.dart';
-import 'dinner.dart';
-import 'firstSnack.dart';
-import 'lunch.dart';
 import 'elements.dart';
 
 
@@ -59,8 +52,25 @@ class _MyHomePageState extends State<MyHomePage> {
               title:  Text('${mealtime[index]}'),
               subtitle: Text('${time[index]}'),
               children: <Widget>[
+                if( index == 0 )
                   for (var item in menuBreakFast)
-                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString()),),
+                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
+                if( index == 1 )
+                  for (var item in menuEarlySnack)
+                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
+                if( index == 2 )
+                  for (var item in menuLunch)
+                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
+                if( index == 3 )
+                  for (var item in menuSnack)
+                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
+                if( index == 4 )
+                  for (var item in menuDinner)
+                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
+                if( index == 5 )
+                  for (var item in menuDinner)
+                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
+
               ],
             )
 
