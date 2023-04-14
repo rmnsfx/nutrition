@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'elements.dart';
-
+import 'food.dart';
 
 
 void main() {
@@ -14,70 +14,75 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Nutrition plan',
+      title: 'Программа питания и тренировок',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'План питания'),
+      home: const MainPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("Программа питания и тренировок"),
       ),
-      body: ListView.builder(
-        itemCount: mealtime.length,
-        itemBuilder: (BuildContext context, index) {
-          return Card(
-            child: ExpansionTile(
-              leading: Icon(icons[index]),
-              //trailing: Icon(Icons.keyboard_arrow_right),
-              title:  Text('${mealtime[index]}'),
-              subtitle: Text('${time[index]}'),
-              children: <Widget>[
-                if( index == 0 )
-                  for (var item in menuBreakFast)
-                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
-                if( index == 1 )
-                  for (var item in menuEarlySnack)
-                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
-                if( index == 2 )
-                  for (var item in menuLunch)
-                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
-                if( index == 3 )
-                  for (var item in menuSnack)
-                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
-                if( index == 4 )
-                  for (var item in menuDinner)
-                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
-                if( index == 5 )
-                  for (var item in menuDinner)
-                    ListTile(title: Text(item.name), subtitle: Text(item.weightMin.toString() + " - " + item.weightMax.toString() + item.units),),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            GestureDetector(
+              onTap: () {
+                print("Card 1 Clicked");
+              },
+              child: SizedBox(
+                height: 200,
+                width: 200,
 
-              ],
-            )
+                child: Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  elevation: 10,
+                  //margin: EdgeInsets.all(10),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
+                  //child: Image.asset('assets/images/img1.png', fit: BoxFit.fill,),
+                  child: Text('Питание', textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)),
+                  ),
+              )
+            ),
+            GestureDetector(
+                onTap: () {
+                  print("Card 2 Clicked");
+                },
+                child: SizedBox(
+                  height: 200,
+                  width: 200,
 
-          );
-        }
-      ),
-
+                  child: Card(
+                    semanticContainer: true,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    elevation: 10,
+                    //margin: EdgeInsets.all(10),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
+                    //child: Image.asset('assets/images/img4.png', fit: BoxFit.fill,),
+                    child: Text('Тренировка', textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)),
+                  ),
+                )
+            ),
+        ],
+      )
+      )
     );
   }
 }
+
+
