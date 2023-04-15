@@ -31,8 +31,17 @@ class MainPage extends StatelessWidget {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      body: Center(
-        child: Column(
+
+      body: Container(
+        decoration: const BoxDecoration(
+            color: Colors.blueGrey,
+            //image: DecorationImage(
+              //image: AssetImage("assets/images/img2.png"),
+                //fit: BoxFit.fill
+            //)
+        ),
+        child: Center(
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -44,7 +53,7 @@ class MainPage extends StatelessWidget {
               },
               child: SizedBox(
                 height: 200,
-                width: 200,
+                width: 300,
 
                 child: Card(
                   semanticContainer: true,
@@ -52,9 +61,9 @@ class MainPage extends StatelessWidget {
                   elevation: 10,
                   //margin: EdgeInsets.all(10),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
-                  //child: Image.asset('assets/images/img1.png', fit: BoxFit.fill,),
-                  child: const Align( alignment: Alignment.center, child: Text('Питание', textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)), ),
+                  child: Image.asset('assets/images/img3.png', fit: BoxFit.fill,),
+                  //child: const Align( alignment: Alignment.center, child: Text('Питание', textAlign: TextAlign.center,
+                      //style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)), ),
                   ),
               )
             ),
@@ -66,7 +75,7 @@ class MainPage extends StatelessWidget {
                 },
                 child: SizedBox(
                   height: 200,
-                  width: 200,
+                  width: 300,
 
                   child: Card(
                     semanticContainer: true,
@@ -74,9 +83,9 @@ class MainPage extends StatelessWidget {
                     elevation: 10,
                     //margin: EdgeInsets.all(10),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
-                    //child: Image.asset('assets/images/img4.png', fit: BoxFit.fill,),
-                    child: const Align( alignment: Alignment.center, child: Text('Тренировка', textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)), ),
+                    child: Image.asset('assets/images/img5.png', fit: BoxFit.fill,),
+                    //child: const Align( alignment: Alignment.center, child: Text('Тренировка', textAlign: TextAlign.center,
+                        //style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)), ),
                   ),
                 )
             ),
@@ -84,12 +93,16 @@ class MainPage extends StatelessWidget {
       )
       ),
 
+      ),
+
       appBar: AppBar(
-        title: const Text("План тренировок", style: TextStyle(
-          color: Colors.black, fontSize: 25),),
+        title: Container(
+          padding: EdgeInsets.all(5.0),
+          child: Text("Тренировка", style: TextStyle(
+          color: Colors.white, fontSize: 33, fontWeight: FontWeight.bold),),),
         elevation: 0,
         backgroundColor: Colors.transparent,
-      )
+      ),
     );
   }
 }
