@@ -12,6 +12,8 @@ final lipid = <String>['Авокадо', 'Орех грецкий', 'Масло 
 final carbs = <String>['Рис', 'Гречка', 'Овсянка', 'Нут', 'Хлебцы', 'Фрукты', 'Чёрный шоколад'];
 final fibre = <String>['Помидор', 'Морковь', 'Свекла', 'Картофель', 'Капуста', 'Лук', 'Шпинат'];
 final breakfast = <String>['Помидор', 'Морковь', 'Свекла', 'Картофель', 'Капуста', 'Лук', 'Шпинат'];
+final day = <String>['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+final iconsTrain = <IconData>[ Icons.add_a_photo];
 
 class Menu {
   //late int id;
@@ -60,3 +62,51 @@ List<Menu> menuLateSnack = [
   Menu("Масло оливковое", 10, 15, 1, " гр."),
 ];
 
+class Training {
+  //late int id;
+  String name = "";
+  int weight = 0;
+  int touch = 0;
+  int quantity = 0;
+  String units = "";
+  String url = "";
+
+  Training(this.name, this.weight, this.touch, this.quantity, this.units, this.url);
+}
+
+List<Training> trainingMonday = [
+  Training("Выпады", 5, 4, 15, " кг.", ""),
+  Training("Жим ногами", 130, 4, 15, " кг.", ""),
+  Training("Разгибания ног", 130, 4, 15, " кг.", ""),
+];
+
+List<Training> trainingTuesday = [
+  Training("Отдых", 0, 0, 0, "", ""),
+];
+
+List<Training> trainingWednesday = [
+  Training("Гравитрон", 85, 4, 15, " кг.", ""),
+  Training("Разводка рук через стороны", 5, 4, 15, " кг.", ""),
+  Training("Жим вверх", 12, 4, 15, " кг.", ""),
+  Training("Тяга нижнего блока к поясу сидя", 12, 4, 15, " кг.", ""),
+  Training("Пуловер в блочном тренажере", 12, 4, 15, " кг.", ""),
+];
+
+List<Training> trainingThursday = [
+  Training("Отдых", 0, 0, 0, "", ""),
+];
+
+List<Training> trainingFriday = [
+  Training("Жим гантелей под углом", 5, 4, 15, " кг.", ""),
+  Training("Жим в хаммере", 130, 4, 15, " кг.", ""),
+  Training("Разводка гантелей", 130, 4, 15, " кг.", ""),
+  Training("Отжимания на брусьях", 130, 4, 15, " кг.", ""),
+];
+
+List<Training> trainingSaturday = [
+  Training("Отдых", 0, 0, 0, "", ""),
+];
+
+List<Training> trainingSunday = [
+  Training("Отдых", 0, 0, 0, "", ""),
+];

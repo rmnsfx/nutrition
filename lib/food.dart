@@ -12,7 +12,7 @@ class FoodPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("widget.title"),
+        title: Text("Питание"),
       ),
       body: ListView.builder(
           itemCount: mealtime.length,

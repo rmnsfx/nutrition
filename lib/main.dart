@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'elements.dart';
 import 'food.dart';
-
+import 'training.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,9 +30,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Программа питания и тренировок"),
-      ),
+      extendBodyBehindAppBar: true,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +38,9 @@ class MainPage extends StatelessWidget {
           children: <Widget>[
             GestureDetector(
               onTap: () {
-                print("Card 1 Clicked");
+                //print("Card 1 Clicked");
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const FoodPage()));
               },
               child: SizedBox(
                 height: 200,
@@ -53,14 +53,16 @@ class MainPage extends StatelessWidget {
                   //margin: EdgeInsets.all(10),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
                   //child: Image.asset('assets/images/img1.png', fit: BoxFit.fill,),
-                  child: Text('Питание', textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)),
+                  child: const Align( alignment: Alignment.center, child: Text('Питание', textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)), ),
                   ),
               )
             ),
             GestureDetector(
                 onTap: () {
-                  print("Card 2 Clicked");
+                  //print("Card 2 Clicked");
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const TrainingPage()));
                 },
                 child: SizedBox(
                   height: 200,
@@ -73,13 +75,20 @@ class MainPage extends StatelessWidget {
                     //margin: EdgeInsets.all(10),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
                     //child: Image.asset('assets/images/img4.png', fit: BoxFit.fill,),
-                    child: Text('Тренировка', textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)),
+                    child: const Align( alignment: Alignment.center, child: Text('Тренировка', textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)), ),
                   ),
                 )
             ),
         ],
       )
+      ),
+
+      appBar: AppBar(
+        title: const Text("План тренировок", style: TextStyle(
+          color: Colors.black, fontSize: 25),),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
       )
     );
   }
