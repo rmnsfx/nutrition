@@ -10,7 +10,7 @@ class FoodPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Питание"),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.indigo.shade100,
       ),
       body: ListView.builder(
           itemCount: mealtime.length,

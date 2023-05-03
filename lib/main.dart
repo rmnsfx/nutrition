@@ -78,8 +78,8 @@ class MainPage extends StatelessWidget {
                         builder: (context) => const FoodPage()));
                   },
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height/4.0,
-                    width: MediaQuery.of(context).size.width/2.0,
+                    height: MediaQuery.of(context).size.height/5.0,
+                    width: MediaQuery.of(context).size.width/2.5,
                     child: Card(
                       semanticContainer: true,
                       clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -103,8 +103,8 @@ class MainPage extends StatelessWidget {
                         builder: (context) => const TrainingPage()));
                   },
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height/4.0,
-                    width: MediaQuery.of(context).size.width/2.0,
+                    height: MediaQuery.of(context).size.height/5.0,
+                    width: MediaQuery.of(context).size.width/2.5,
                     child: Card(
                       semanticContainer: true,
                       clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -114,6 +114,31 @@ class MainPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(100.0),
                       ),
                       child: Image.asset('assets/images/img8.png',
+                        fit: BoxFit.none,
+                      ),
+                      //child: const Align( alignment: Alignment.center, child: Text('Тренировка', textAlign: TextAlign.center,
+                      //style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700)), ),
+                    ),
+                  )
+              ),
+              InkWell(
+                  onTap: () {
+                    //print("Card 3 Clicked");
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const TrainingPage()));
+                  },
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height/5.0,
+                    width: MediaQuery.of(context).size.width/2.5,
+                    child: Card(
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      elevation: 10,
+                      //margin: EdgeInsets.all(10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100.0),
+                      ),
+                      child: Image.asset('assets/images/img9.png',
                         fit: BoxFit.none,
                       ),
                       //child: const Align( alignment: Alignment.center, child: Text('Тренировка', textAlign: TextAlign.center,

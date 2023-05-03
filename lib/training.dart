@@ -13,7 +13,7 @@ class TrainingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Тренировки"),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.indigo.shade100,
       ),
       body: ListView.builder(
           itemCount: day.length,
