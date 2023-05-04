@@ -1,7 +1,8 @@
 
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+
 
 final mealtime = <String>['Завтрак', 'Ранний перекус', 'Обед', 'Полдник', 'Ужин', 'Поздний перекус'];
 final icons = <IconData>[ Icons.free_breakfast, Icons.fastfood, Icons.restaurant, Icons.local_pizza, Icons.local_dining, Icons.local_bar];
@@ -61,6 +62,7 @@ List<Menu> menuLateSnack = [
   Menu("Овощи", 200, 250, 1, " гр."),
   Menu("Масло оливковое", 10, 15, 1, " гр."),
 ];
+
 
 class Training {
   //late int id;

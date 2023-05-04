@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "328529430929",
+    "firebase_url": "https://train-983ae-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "train-983ae",
+    "storage_bucket": "train-983ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328529430929:android:d5dc07a0e5344405ffb230",
+        "android_client_info": {
+          "package_name": "com.example.nutririon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328529430929-9o3hs36p9uv0sethpd66qbhnhtvdnbrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6FyaqYfaUu2HN-xGevUdqYHXwSD7iO2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328529430929-9o3hs36p9uv0sethpd66qbhnhtvdnbrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328529430929:android:1d578bbf588c9169ffb230",
+        "android_client_info": {
+          "package_name": "com.example.nutrition"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328529430929-9o3hs36p9uv0sethpd66qbhnhtvdnbrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6FyaqYfaUu2HN-xGevUdqYHXwSD7iO2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328529430929-9o3hs36p9uv0sethpd66qbhnhtvdnbrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

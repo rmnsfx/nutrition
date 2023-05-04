@@ -1,8 +1,12 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'elements.dart';
 import 'package:flutter/widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 
+final ref = FirebaseFirestore.instance.collection("Test");
 
 class TrainingPage extends StatelessWidget {
   const TrainingPage({super.key});
@@ -15,51 +19,52 @@ class TrainingPage extends StatelessWidget {
         title: Text("Тренировки"),
         backgroundColor: Colors.indigo.shade100,
       ),
-      body: ListView.builder(
-          itemCount: day.length,
-          itemBuilder: (BuildContext context, index) {
-            return Card(
-                child: ExpansionTile(
-                  leading: Icon(iconsTrain[0]),
-                  //trailing: Icon(Icons.keyboard_arrow_right),
-                  title:  Text('${day[index]}'),
-                  //subtitle: Text('${time[index]}'),
-                  children: <Widget>[
-                    if( index == 0 )
-                      for (var item in trainingMonday)
-                        ListTile(title: Text(item.name), subtitle: Text("Вес: " + item.weight.toString() + item.units +
-                            "; Подходов: " + item.touch.toString() + "; Повторов: " + item.quantity.toString()),),
-                    if( index == 1 )
-                      for (var item in trainingTuesday)
-                        ListTile(title: Text(item.name), subtitle: Text("Вес: " + item.weight.toString() + item.units +
-                            "; Подходов: " + item.touch.toString() + "; Повторов: " + item.quantity.toString()),),
-                    if( index == 2 )
-                      for (var item in trainingWednesday)
-                        ListTile(title: Text(item.name), subtitle: Text("Вес: " + item.weight.toString() + item.units +
-                            "; Подходов: " + item.touch.toString() + "; Повторов: " + item.quantity.toString()),),                    if( index == 3 )
-                    if( index == 3 )
-                      for (var item in trainingThursday)
-                        ListTile(title: Text(item.name), subtitle: Text("Вес: " + item.weight.toString() + item.units +
-                            "; Подходов: " + item.touch.toString() + "; Повторов: " + item.quantity.toString()),),                    if( index == 4 )
-                    if( index == 4 )
-                      for (var item in trainingFriday)
-                        ListTile(title: Text(item.name), subtitle: Text("Вес: " + item.weight.toString() + item.units +
-                            "; Подходов: " + item.touch.toString() + "; Повторов: " + item.quantity.toString()),),                    if( index == 5 )
-                    if( index == 5 )
-                      for (var item in trainingSaturday)
-                        ListTile(title: Text(item.name), subtitle: Text("Вес: " + item.weight.toString() + item.units +
-                            "; Подходов: " + item.touch.toString() + "; Повторов: " + item.quantity.toString()),),
-                    if( index == 6 )
-                      for (var item in trainingSunday)
-                        ListTile(title: Text(item.name), subtitle: Text("Вес: " + item.weight.toString() + item.units +
-                            "; Подходов: " + item.touch.toString() + "; Повторов: " + item.quantity.toString()),),
-                  ],
-                )
+      body: StreamBuilder(
+        stream: ref.snapshots(),
+        builder: (context, AsyncSnapshot<QuerySnapshot>snapshot) {
+          return ListView.builder(
+              itemCount: day.length,
+              itemBuilder: (BuildContext context, index) {
+                return Card(
+                    child: ExpansionTile(
+                      leading: Icon(iconsTrain[0]),
+                      //trailing: Icon(Icons.keyboard_arrow_right),
+                      title:  Text('${day[index]}'),
+                      //subtitle: Text('${time[index]}'),
+                      children: <Widget>[
 
-            );
-          }
+                        if( index == 0 )
+                          for (var item in trainingMonday)
+                            ListTile(title: Text(item.name), subtitle: Text("Вес: ${item.weight}${item.units}; Подходов: ${item.touch}; Повторов: ${item.quantity}"),),
+                        if( index == 1 )
+                          for (var item in trainingTuesday)
+                            ListTile(title: Text(item.name), subtitle: Text("Вес: ${item.weight}${item.units}; Подходов: ${item.touch}; Повторов: ${item.quantity}"),),
+                        if( index == 2 )
+                          for (var item in trainingWednesday)
+                            ListTile(title: Text(item.name), subtitle: Text("Вес: ${item.weight}${item.units}; Подходов: ${item.touch}; Повторов: ${item.quantity}"),),
+                        if( index == 3 )
+                          for (var item in trainingThursday)
+                            ListTile(title: Text(item.name), subtitle: Text("Вес: ${item.weight}${item.units}; Подходов: ${item.touch}; Повторов: ${item.quantity}"),),
+                        if( index == 4 )
+                          for (var item in trainingFriday)
+                            ListTile(title: Text(item.name), subtitle: Text("Вес: ${item.weight}${item.units}; Подходов: ${item.touch}; Повторов: ${item.quantity}"),),
+                        if( index == 5 )
+                          for (var item in trainingSaturday)
+                            ListTile(title: Text(item.name), subtitle: Text("Вес: ${item.weight}${item.units}; Подходов: ${item.touch}; Повторов: ${item.quantity}"),),
+                        if( index == 6 )
+                          for (var item in trainingSunday)
+                            ListTile(title: Text(item.name), subtitle: Text("Вес: ${item.weight}${item.units}; Подходов: ${item.touch}; Повторов: ${item.quantity}"),),
+                      ],
+                    )
+
+                );
+              }
+          );
+        }
       ),
 
     );
   }
 }
+
+
