@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 
-final ref = FirebaseFirestore.instance.collection("user1");
+//final ref = FirebaseFirestore.instance.collection("user1");
 
 class TrainingPage extends StatelessWidget {
   const TrainingPage({super.key});
@@ -22,11 +22,10 @@ class TrainingPage extends StatelessWidget {
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection("user1").snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot>snapshot) {
+
           if(snapshot.hasData) {
-
             final List<DocumentSnapshot> documents = snapshot.data!.docs;
-            final entryList = documents[0]['mon'].entries.toList();
-
+            Map<String, dynamic> dataMap = snapshot.data!.docs[0].data() as Map<String, dynamic>;
             return ListView.builder(
                 itemCount: day.length,
                 itemBuilder: (BuildContext context, index) {
@@ -38,49 +37,99 @@ class TrainingPage extends StatelessWidget {
                         //subtitle: Text('${time[index]}'),
                         children: <Widget>[
 
-                          if( index == 0 )
-                            for (var item in trainingMonday)
-                              ListTile(
+                          if( index == 0 ) ...{
+                            if( dataMap.containsKey('mon') )
+                            for (var item in documents[0]['mon'].entries.toList()) ...{
+                              ListTile( title: Text(item.key), subtitle: Row(
+                                children: [
+                                  if( item.value != "" )
+                                  for( var subItem in item.value.entries.toList())
+                                    Text(subItem.key + ": " + subItem.value.toString() + "; "),
+                                ],
+                              ) ),
+                            }
+                          },
 
-                                title: Text( entryList[0].key ),
-                                subtitle: Text("Вес: ${item.weight}${item.units}; Подходов: ${item.touch}; Повторов: ${item.quantity}"),),
+                          if( index == 1 ) ...{
+                            if( dataMap.containsKey('tue') )
+                            for (var item in documents[0]['tue'].entries.toList()) ...{
+                              ListTile( title: Text(item.key), subtitle: Row(
+                                children: [
+                                  if( item.value != "" )
+                                  for( var subItem in item.value.entries.toList())
+                                    Text(subItem.key + ": " + subItem.value.toString() + "; "),
+                                ],
+                              ) ),
+                            }
+                          },
 
-                          if( index == 1 )
-                            for (var item in trainingTuesday)
-                              ListTile(title: Text(item.name), subtitle: Text(
-                                  "Вес: ${item.weight}${item
-                                      .units}; Подходов: ${item
-                                      .touch}; Повторов: ${item.quantity}"),),
-                          if( index == 2 )
-                            for (var item in trainingWednesday)
-                              ListTile(title: Text(item.name), subtitle: Text(
-                                  "Вес: ${item.weight}${item
-                                      .units}; Подходов: ${item
-                                      .touch}; Повторов: ${item.quantity}"),),
-                          if( index == 3 )
-                            for (var item in trainingThursday)
-                              ListTile(title: Text(item.name), subtitle: Text(
-                                  "Вес: ${item.weight}${item
-                                      .units}; Подходов: ${item
-                                      .touch}; Повторов: ${item.quantity}"),),
-                          if( index == 4 )
-                            for (var item in trainingFriday)
-                              ListTile(title: Text(item.name), subtitle: Text(
-                                  "Вес: ${item.weight}${item
-                                      .units}; Подходов: ${item
-                                      .touch}; Повторов: ${item.quantity}"),),
-                          if( index == 5 )
-                            for (var item in trainingSaturday)
-                              ListTile(title: Text(item.name), subtitle: Text(
-                                  "Вес: ${item.weight}${item
-                                      .units}; Подходов: ${item
-                                      .touch}; Повторов: ${item.quantity}"),),
-                          if( index == 6 )
-                            for (var item in trainingSunday)
-                              ListTile(title: Text(item.name), subtitle: Text(
-                                  "Вес: ${item.weight}${item
-                                      .units}; Подходов: ${item
-                                      .touch}; Повторов: ${item.quantity}"),),
+                          if( index == 2 ) ...{
+                            if( dataMap.containsKey('wed') )
+                              for (var item in documents[0]['wed'].entries.toList()) ...{
+                                ListTile( title: Text(item.key), subtitle: Row(
+                                  children: [
+                                    if( item.value != "" )
+                                    for( var subItem in item.value.entries.toList())
+                                      Text(subItem.key + ": " + subItem.value.toString() + "; "),
+                                  ],
+                                ) ),
+                              }
+                          },
+
+                          if( index == 3 ) ...{
+                            if( dataMap.containsKey('thur') )
+                              for (var item in documents[0]['thur'].entries.toList()) ...{
+                                ListTile( title: Text(item.key), subtitle: Row(
+                                  children: [
+                                    if( item.value != "" )
+                                    for( var subItem in item.value.entries.toList())
+                                      Text(subItem.key.toString() + ": " + subItem.value.toString() + "; "),
+                                  ],
+                                ) ),
+                              }
+                          },
+
+                          if( index == 4 ) ...{
+                            if( dataMap.containsKey('fri') )
+                              for (var item in documents[0]['fri'].entries.toList()) ...{
+                                ListTile( title: Text(item.key), subtitle: Row(
+                                  children: [
+                                    if( item.value != "" )
+                                    for( var subItem in item.value.entries.toList())
+                                      Text(subItem.key + ": " + subItem.value.toString() + "; "),
+                                  ],
+                                ) ),
+                              }
+                          },
+
+                          if( index == 5 ) ...{
+                            if( dataMap.containsKey('sat') )
+                              for (var item in documents[0]['sat'].entries.toList()) ...{
+                                ListTile( title: Text(item.key), subtitle: Row(
+                                  children: [
+                                    if( item.value != "" )
+                                    for( var subItem in item.value.entries.toList())
+                                      Text(subItem.key + ": " + subItem.value.toString() + "; "),
+                                  ],
+                                ) ),
+                              }
+                          },
+
+
+                          if( index == 6 ) ...{
+                            if( dataMap.containsKey('sun') )
+                              for (var item in documents[0]['sun'].entries.toList()) ...{
+                                ListTile( title: Text(item.key), subtitle: Row(
+                                  children: [
+                                    if( item.value != "" )
+                                    for( var subItem in item.value.entries.toList())
+                                      Text(subItem.key + ": " + subItem.value.toString() + "; "),
+                                  ],
+                                ) ),
+                              }
+                          },
+
+
                         ],
                       )
 
@@ -89,7 +138,7 @@ class TrainingPage extends StatelessWidget {
             );
           }
           else {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
         }
       ),
