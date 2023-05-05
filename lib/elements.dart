@@ -15,6 +15,8 @@ final fibre = <String>['Помидор', 'Морковь', 'Свекла', 'Ка
 final breakfast = <String>['Помидор', 'Морковь', 'Свекла', 'Картофель', 'Капуста', 'Лук', 'Шпинат'];
 final day = <String>['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
 final iconsTrain = <IconData>[ Icons.add_a_photo];
+final measureParameters = <String>['Вес', 'Спина верх', 'Спина низ', 'Талия', 'Живот', 'Таз', 'Бедро левое', 'Бедро правое', 'Икра левая', 'Икра правая', 'Бицепс правый', 'Бицепс левый' ];
+
 
 class Menu {
   //late int id;
@@ -76,6 +78,7 @@ class Training {
   Training(this.name, this.weight, this.touch, this.quantity, this.units, this.url);
 }
 
+/*
 List<Training> trainingMonday = [
   Training("Выпады", 5, 4, 15, " кг.", ""),
   Training("Жим ногами", 130, 4, 15, " кг.", ""),
@@ -111,4 +114,4 @@ List<Training> trainingSaturday = [
 
 List<Training> trainingSunday = [
   Training("Отдых", 0, 0, 0, "", ""),
-];
+];*/

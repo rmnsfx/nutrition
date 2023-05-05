@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'elements.dart';
 import 'food.dart';
 import 'training.dart';
+import 'measure.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -129,8 +130,8 @@ class MainPage extends StatelessWidget {
               InkWell(
                   onTap: () {
                     //print("Card 3 Clicked");
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) => const TrainingPage()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const MeasurePage()));
                   },
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height/5.0,
