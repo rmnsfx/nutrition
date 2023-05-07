@@ -9,33 +9,39 @@ class MeasurePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Параметры тела"),
+        title: Text("Измерения"),
         backgroundColor: Colors.indigo.shade100,
       ),
-      body: ListView.builder(
-          itemCount: measureParameters.length,
-          itemBuilder: (BuildContext context, index) {
-            return Card(
-                child: ExpansionTile(
-                  //leading: Icon(icons[index]),
-                  //trailing: Icon(Icons.keyboard_arrow_right),
-                  title: Text('${measureParameters[index]}'),
-                  //subtitle: Text('${time[index]}'),
-                  children: <Widget>[
-
-                    // if (index == 0)
-                    //   for (var item in menuBreakFast)
-                    //     ListTile(
-                    //       title: Text(item.name),
-                    //       subtitle: Text(item.weightMin.toString() +
-                    //           " - " +
-                    //           item.weightMax.toString() +
-                    //           item.units),
-                    //     ),
-
-                  ],
-                ));
-          }),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.indigo.shade100,
+        onPressed: () {  },
+        child: const Icon(Icons.add),
+      ),
+      body: SafeArea(
+        child: ListView.builder(
+            itemCount: measureParameters.length,
+            itemBuilder: (BuildContext context, index) {
+              return Card(
+                  child: ExpansionTile(
+                    //leading: Icon(icons[index]),
+                    // trailing: Row(
+                    //   mainAxisSize: MainAxisSize.min,
+                    //   children: [
+                    //     IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+                    //     IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
+                    //     IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),
+                    //   ],
+                    // ),
+                    title: Text('${measureParameters[index]}'),
+                    //subtitle: Text('${time[index]}'),
+                    children: <Widget>[
+                      ListTile( title: Text('85 кг.'), subtitle: Text('03.05.2023')),
+                      ListTile( title: Text('85 кг.'), subtitle: Text('03.05.2023')),
+                      ListTile( title: Text('85 кг.'), subtitle: Text('03.05.2023')),
+                    ],
+                  ));
+            }),
+      ),
     );
   }
 }
