@@ -14,7 +14,14 @@ class MeasurePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.indigo.shade100,
-        onPressed: () {  },
+        onPressed: () {
+          showDialog( context: context, builder: (BuildContext context) {
+            return const AlertDialog(
+              title: Text("My Super title"),
+              content: Text("Hello World"),
+            );
+          });
+        },
         child: const Icon(Icons.add),
       ),
       body: SafeArea(
@@ -34,14 +41,16 @@ class MeasurePage extends StatelessWidget {
                     // ),
                     title: Text('${measureParameters[index]}'),
                     //subtitle: Text('${time[index]}'),
-                    children: <Widget>[
+                    children: const <Widget>[
                       ListTile( title: Text('85 кг.'), subtitle: Text('03.05.2023')),
                       ListTile( title: Text('85 кг.'), subtitle: Text('03.05.2023')),
                       ListTile( title: Text('85 кг.'), subtitle: Text('03.05.2023')),
                     ],
                   ));
             }),
+
       ),
+
     );
   }
 }
