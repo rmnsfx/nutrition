@@ -9,16 +9,71 @@ class MeasurePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Измерения"),
+        title: const Text("Измерения"),
         backgroundColor: Colors.indigo.shade100,
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.indigo.shade100,
         onPressed: () {
           showDialog( context: context, builder: (BuildContext context) {
-            return const AlertDialog(
-              title: Text("My Super title"),
-              content: Text("Hello World"),
+            return AlertDialog(
+              title: const Text("My Super title"),
+              scrollable: true,
+              content: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration: const InputDecoration(
+                      labelText: 'Выбор параметра',
+                      icon: Icon(Icons.account_box),),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Дата',
+                        icon: Icon(Icons.account_box),
+                      ),
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(), //get today's date
+                            firstDate:DateTime(2000), //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2101)
+                        );
+
+                        // if(pickedDate != null ){
+                        //   print(pickedDate);  //get the picked date in the format => 2022-07-04 00:00:00.000
+                        //   String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate); // format date in required form here we use yyyy-MM-dd that means time is removed
+                        //   print(formattedDate); //formatted date output using intl package =>  2022-07-04
+                        //   //You can format date as per your need
+                        //
+                        //   setState(() {
+                        //     dateController.text = formattedDate; //set foratted date to TextField value.
+                        //   });
+                        // }else{
+                        //   print("Date is not selected");
+                        // }
+
+                      },
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Значение параметра',
+                        icon: Icon(Icons.account_box),),
+                    ),
+                  ],
+                ),
+              ),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text('OK'),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text('Cancel'),
+                  ),
+                ]
             );
           });
         },
