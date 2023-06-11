@@ -38,13 +38,20 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.indigo.shade100,
+      backgroundColor: Colors.orange,
 
       appBar: AppBar(
         toolbarHeight: 130,
         flexibleSpace: SafeArea(
           child: Container(
             padding: const EdgeInsets.all(20.0),
+            // decoration: BoxDecoration(
+            //   gradient: LinearGradient(
+            //     begin: Alignment.topLeft,
+            //     end: Alignment.bottomRight,
+            //     colors: [Colors.blue, Colors.cyan, Colors.green],
+            //   ),
+            // ),
             child: Column(
               textDirection: TextDirection.ltr,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,6 +78,11 @@ class MainPage extends StatelessWidget {
               //image: AssetImage("assets/images/img2.png"),
               //fit: BoxFit.fill
               //)
+              gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.orange, Colors.amber, Colors.cyan],
+            ),
               ),
           child: Center(
               child: Column(
@@ -92,7 +104,7 @@ class MainPage extends StatelessWidget {
                       elevation: 10,
                       //margin: EdgeInsets.all(10),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100.0),
+                        borderRadius: BorderRadius.circular(25.0),
                       ),
                       child: Image.asset('assets/images/img6.png',
                         fit: BoxFit.none,
@@ -117,7 +129,7 @@ class MainPage extends StatelessWidget {
                       elevation: 10,
                       //margin: EdgeInsets.all(10),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100.0),
+                        borderRadius: BorderRadius.circular(25.0),
                       ),
                       child: Image.asset('assets/images/img8.png',
                         fit: BoxFit.none,
@@ -142,7 +154,7 @@ class MainPage extends StatelessWidget {
                       elevation: 10,
                       //margin: EdgeInsets.all(10),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100.0),
+                        borderRadius: BorderRadius.circular(25.0),
                       ),
                       child: Image.asset('assets/images/img9.png',
                         fit: BoxFit.none,
