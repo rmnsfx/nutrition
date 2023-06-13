@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'elements.dart';
 import 'fetch.dart';
 
-
 class FoodPage extends StatelessWidget {
   const FoodPage({super.key});
 
@@ -15,65 +14,27 @@ class FoodPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: FutureBuilder<List<Food>>(
-            future: fetchFood(),
-            builder: (context, snapshot) {
-            return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder: (BuildContext context, index) {
-                  return Card(
-                      child: ExpansionTile(
-                      leading: Icon(icons[index]),
-                      //trailing: Icon(Icons.keyboard_arrow_right),
-                      title: Text(mealtime[index]),
-                      subtitle: Text(time[index]),
-                      children: <Widget>[
-                        if (index == 0)
-                          for (var item in snapshot.data[index])
-                            ListTile(
-                              title: Text(item.title),
-                              subtitle: Text(
-                                  "${item.weightMin} - ${item.weightMax}${item.units}"),
-                            ),
-                        if (index == 1)
-                          for (var item in menuEarlySnack)
-                            ListTile(
-                              title: Text(item.name),
-                              subtitle: Text(
-                                  "${item.weightMin} - ${item.weightMax}${item.units}"),
-                            ),
-                        if (index == 2)
-                          for (var item in menuLunch)
-                            ListTile(
-                              title: Text(item.name),
-                              subtitle: Text(
-                                  "${item.weightMin} - ${item.weightMax}${item.units}"),
-                            ),
-                        if (index == 3)
-                          for (var item in menuSnack)
-                            ListTile(
-                              title: Text(item.name),
-                              subtitle: Text(
-                                  "${item.weightMin} - ${item.weightMax}${item.units}"),
-                            ),
-                        if (index == 4)
-                          for (var item in menuDinner)
-                            ListTile(
-                              title: Text(item.name),
-                              subtitle: Text(
-                                  "${item.weightMin} - ${item.weightMax}${item.units}"),
-                            ),
-                        if (index == 5)
-                          for (var item in menuDinner)
-                            ListTile(
-                              title: Text(item.name),
-                              subtitle: Text(
-                                  "${item.weightMin} - ${item.weightMax}${item.units}"),
-                            ),
-                    ],
-                  ));
-                });
-          }
-        ),
+          future: fetchFood(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      height: 75,
+                      color: Colors.white,
+                      child: Center(
+                        child: Text(snapshot.data![index].title),
+                      ),
+                    );
+                  });
+            } else if (snapshot.hasError) {
+              return Text(snapshot.error.toString());
+            }
+            // By default show a loading spinner.
+            return const CircularProgressIndicator();
+          },
+        )
       ),
     );
   }
