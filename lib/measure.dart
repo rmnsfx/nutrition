@@ -10,10 +10,10 @@ class MeasurePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Измерения"),
-        backgroundColor: Colors.indigo.shade100,
+        backgroundColor: Colors.cyan,
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.indigo.shade100,
+        backgroundColor: Colors.orange,
         onPressed: () {
           showDialog( context: context, builder: (BuildContext context) {
             return AlertDialog(

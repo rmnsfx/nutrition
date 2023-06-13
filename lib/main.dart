@@ -38,7 +38,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.orange,
+      backgroundColor: Colors.cyan,
 
       appBar: AppBar(
         toolbarHeight: 130,
@@ -81,7 +81,7 @@ class MainPage extends StatelessWidget {
               gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.orange, Colors.amber, Colors.cyan],
+              colors: [Colors.cyan, Colors.yellow],
             ),
               ),
           child: Center(

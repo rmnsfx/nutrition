@@ -17,7 +17,7 @@ class TrainingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Тренировки"),
-        backgroundColor: Colors.indigo.shade100,
+        backgroundColor: Colors.cyan
       ),
       body: SafeArea(
         child: StreamBuilder(
