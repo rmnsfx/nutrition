@@ -6,14 +6,16 @@ class Food {
   final int weight;
   final String id;
   final String title;
+  final String foodid;
 
-  Food({required this.weight, required this.id, required this.title});
+  Food({required this.weight, required this.id, required this.title, required this.foodid});
 
   factory Food.fromJson(Map<String, dynamic> json) {
     return Food(
       weight: json['weight'] ,
       title: json['title'],
       id: json['id'],
+      foodid: json['foodid'],
     );
   }
 }

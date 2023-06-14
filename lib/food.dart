@@ -18,14 +18,51 @@ class FoodPage extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
-                  itemCount: snapshot.data!.length,
+                  itemCount: 5,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      height: 75,
-                      color: Colors.white,
-                      child: Center(
-                        child: Text(snapshot.data![index].title),
-                      ),
+                    return Card(
+                        child: ExpansionTile(
+                          leading: Icon(icons[index]),
+                          title: Text(mealtime[index]),
+                          subtitle: Text(time[index]),
+                            children: <Widget>[
+                              if (index == 0)
+                                for( Food item in snapshot.data! )
+                                  if(item.foodid == 'завтрак')
+                                    ListTile(
+                                      title: Text(item.title),
+                                      subtitle: Text(item.weight.toString()),
+                                    ),
+                              if (index == 1)
+                                for( Food item in snapshot.data! )
+                                  if(item.foodid == 'перекус_1')
+                                    ListTile(
+                                      title: Text(item.title),
+                                      subtitle: Text(item.weight.toString()),
+                                    ),
+                              if (index == 2)
+                                for( Food item in snapshot.data! )
+                                  if(item.foodid == 'обед')
+                                    ListTile(
+                                      title: Text(item.title),
+                                      subtitle: Text(item.weight.toString()),
+                                    ),
+                              if (index == 3)
+                                for( Food item in snapshot.data! )
+                                  if(item.foodid == 'перекус_2')
+                                    ListTile(
+                                      title: Text(item.title),
+                                      subtitle: Text(item.weight.toString()),
+                                    ),
+                              if (index == 4)
+                                for( Food item in snapshot.data! )
+                                  if(item.foodid == 'ужин')
+                                    ListTile(
+                                      title: Text(item.title),
+                                      subtitle: Text(item.weight.toString()),
+                                    ),
+                            ]
+                        )
                     );
                   });
             } else if (snapshot.hasError) {
