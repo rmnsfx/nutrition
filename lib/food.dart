@@ -31,35 +31,35 @@ class FoodPage extends StatelessWidget {
                                   if(item.foodid == 'завтрак')
                                     ListTile(
                                       title: Text(item.title),
-                                      subtitle: Text(item.weight.toString()),
+                                      subtitle: Text('${item.weight} гр.'),
                                     ),
                               if (index == 1)
                                 for( Food item in snapshot.data! )
                                   if(item.foodid == 'перекус_1')
                                     ListTile(
                                       title: Text(item.title),
-                                      subtitle: Text(item.weight.toString()),
+                                      subtitle: Text('${item.weight} гр.'),
                                     ),
                               if (index == 2)
                                 for( Food item in snapshot.data! )
                                   if(item.foodid == 'обед')
                                     ListTile(
                                       title: Text(item.title),
-                                      subtitle: Text(item.weight.toString()),
+                                      subtitle: Text('${item.weight} гр.'),
                                     ),
                               if (index == 3)
                                 for( Food item in snapshot.data! )
                                   if(item.foodid == 'перекус_2')
                                     ListTile(
                                       title: Text(item.title),
-                                      subtitle: Text(item.weight.toString()),
+                                      subtitle: Text('${item.weight} гр.'),
                                     ),
                               if (index == 4)
                                 for( Food item in snapshot.data! )
                                   if(item.foodid == 'ужин')
                                     ListTile(
                                       title: Text(item.title),
-                                      subtitle: Text(item.weight.toString()),
+                                      subtitle: Text('${item.weight} гр.'),
                                     ),
                             ]
                         )
